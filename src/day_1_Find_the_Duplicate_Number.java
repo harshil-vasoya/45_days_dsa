@@ -6,33 +6,24 @@ public class day_1_Find_the_Duplicate_Number {
     }
     public static int solution(int[] nums)
     {
-//         for(int i=0;i<nums.length-1;i++)
-//         {
-//             int temp=nums[i];
-//             for(int j=i+1;j<nums.length;j++)
-//             {
-//                 int temp2=temp^nums[j];
-//                 if(temp2==0)
-//                 return nums[j];
-//             }
-//         }
-        int slow = 0;
-        int fast = 0;
-        int finder = 0;
-//        int[] nums = {1,3,4,2,2};
-
-        while (true)
+        if (nums.length > 1)
         {
-            slow = nums[slow];
-            System.out.print(slow + " ");
-            fast = nums[nums[fast]];
-            System.out.print(fast);
+            int slow = nums[0];
+            int fast = nums[nums[0]];
+            while (slow != fast)
+            {
+                slow = nums[slow];
+                fast = nums[nums[fast]];
+            }
 
-
-            if (slow == fast)
-                break;
-            System.out.println();
+            fast = 0;
+            while (fast != slow)
+            {
+                fast = nums[fast];
+                slow = nums[slow];
+            }
+            return slow;
         }
-         return -1;
+        return -1;
     }
 }
