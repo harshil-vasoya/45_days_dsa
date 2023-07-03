@@ -18,6 +18,7 @@ public class day_2_Subarray_Sums_Divisible_by_K {
 
         int total = modGroups[0];
         for (int x : modGroups){
+            System.out.println(x);
             if (x > 1) total += (x*(x-1)) / 2;
         }
 
